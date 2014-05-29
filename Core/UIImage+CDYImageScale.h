@@ -18,4 +18,6 @@
 
 @interface UIImage (CDYImageScale)
 
+- (UIImage *)scaleTo:(CGSize)targetSize mode:(UIViewContentMode)mode;
+
 @end

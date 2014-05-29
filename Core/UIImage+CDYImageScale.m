@@ -18,4 +18,27 @@
 
 @implementation UIImage (CDYImageScale)
 
+- (UIImage *)scaleTo:(CGSize)targetSize mode:(UIViewContentMode)mode {
+    CGRect drawFrame = CGRectZero;
+    if (mode == UIViewContentModeScaleAspectFill) {
+        CGFloat scaledImageWidth;
+        CGFloat scaledImageHeight;
+        if (self.size.height > self.size.width) {
+            scaledImageWidth = targetSize.width;
+            scaledImageHeight = (scaledImageWidth * self.size.height) / self.size.width;
+        } else {
+            scaledImageHeight = targetSize.height;
+            scaledImageWidth = (scaledImageHeight * self.size.width) / self.size.height;
+        }
+
+        drawFrame = CGRectMake((targetSize.width - scaledImageWidth) / 2, (targetSize.height - scaledImageHeight) / 2, scaledImageWidth, scaledImageHeight);
+    }
+
+    UIGraphicsBeginImageContextWithOptions(targetSize, NO, 0.0);
+    [self drawInRect:drawFrame];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
 @end
