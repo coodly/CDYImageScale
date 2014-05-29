@@ -19,6 +19,7 @@
 		EA011ABE1937B12B00232E92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA011AA61937B12B00232E92 /* UIKit.framework */; };
 		EA011AC61937B12B00232E92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA011AC41937B12B00232E92 /* InfoPlist.strings */; };
 		EA011AC81937B12B00232E92 /* CDYImageScaleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA011AC71937B12B00232E92 /* CDYImageScaleTests.m */; };
+		EA011AD61937B25300232E92 /* UIImage+CDYImageScale.m in Sources */ = {isa = PBXBuildFile; fileRef = EA011AD51937B25300232E92 /* UIImage+CDYImageScale.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,9 @@
 		EA011AC31937B12B00232E92 /* CDYImageScaleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CDYImageScaleTests-Info.plist"; sourceTree = "<group>"; };
 		EA011AC51937B12B00232E92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EA011AC71937B12B00232E92 /* CDYImageScaleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDYImageScaleTests.m; sourceTree = "<group>"; };
+		EA011AD11937B24100232E92 /* CDYImageScale.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CDYImageScale.podspec; sourceTree = "<group>"; };
+		EA011AD41937B25300232E92 /* UIImage+CDYImageScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CDYImageScale.h"; sourceTree = "<group>"; };
+		EA011AD51937B25300232E92 /* UIImage+CDYImageScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CDYImageScale.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,8 @@
 		EA011A961937B12B00232E92 = {
 			isa = PBXGroup;
 			children = (
+				EA011AD11937B24100232E92 /* CDYImageScale.podspec */,
+				EA011AD21937B24100232E92 /* Core */,
 				EA011AA81937B12B00232E92 /* CDYImageScale */,
 				EA011AC11937B12B00232E92 /* CDYImageScaleTests */,
 				EA011AA11937B12B00232E92 /* Frameworks */,
@@ -142,6 +148,15 @@
 				EA011AC41937B12B00232E92 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EA011AD21937B24100232E92 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				EA011AD41937B25300232E92 /* UIImage+CDYImageScale.h */,
+				EA011AD51937B25300232E92 /* UIImage+CDYImageScale.m */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA011AB31937B12B00232E92 /* AppDelegate.m in Sources */,
+				EA011AD61937B25300232E92 /* UIImage+CDYImageScale.m in Sources */,
 				EA011AAF1937B12B00232E92 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +455,7 @@
 				EA011ACD1937B12B00232E92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EA011ACE1937B12B00232E92 /* Build configuration list for PBXNativeTarget "CDYImageScaleTests" */ = {
 			isa = XCConfigurationList;
@@ -447,6 +464,7 @@
 				EA011AD01937B12B00232E92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
