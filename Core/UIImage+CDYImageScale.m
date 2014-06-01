@@ -20,9 +20,9 @@
 
 - (UIImage *)scaleTo:(CGSize)targetSize mode:(UIViewContentMode)mode {
     CGRect drawFrame = CGRectZero;
+    CGFloat scaledImageWidth = 0;
+    CGFloat scaledImageHeight = 0;
     if (mode == UIViewContentModeScaleAspectFill) {
-        CGFloat scaledImageWidth;
-        CGFloat scaledImageHeight;
         if (self.size.height > self.size.width) {
             scaledImageWidth = targetSize.width;
             scaledImageHeight = (scaledImageWidth * self.size.height) / self.size.width;
@@ -30,9 +30,19 @@
             scaledImageHeight = targetSize.height;
             scaledImageWidth = (scaledImageHeight * self.size.width) / self.size.height;
         }
-
-        drawFrame = CGRectMake((targetSize.width - scaledImageWidth) / 2, (targetSize.height - scaledImageHeight) / 2, scaledImageWidth, scaledImageHeight);
+    } else if (mode == UIViewContentModeScaleAspectFit) {
+        if (self.size.width > self.size.height) {
+            scaledImageWidth = targetSize.width;
+            scaledImageHeight = (scaledImageWidth * self.size.height) / self.size.width;
+        } else {
+            scaledImageHeight = targetSize.height;
+            scaledImageWidth = (scaledImageHeight * self.size.width) / self.size.height;;
+        }
+        targetSize = CGSizeMake(scaledImageWidth, scaledImageHeight);
     }
+
+    drawFrame = CGRectMake((targetSize.width - scaledImageWidth) / 2, (targetSize.height - scaledImageHeight) / 2, scaledImageWidth, scaledImageHeight);
+    drawFrame = CGRectIntegral(drawFrame);
 
     UIGraphicsBeginImageContextWithOptions(targetSize, NO, 0.0);
     [self drawInRect:drawFrame];
